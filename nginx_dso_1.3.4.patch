@@ -1,6 +1,6 @@
-diff -ruN nginx-1.2.2/auto/cc/conf nginx-1.2.2-dso/auto/cc/conf
---- nginx-1.2.2/auto/cc/conf	2012-01-18 23:07:43.000000000 +0800
-+++ nginx-1.2.2-dso/auto/cc/conf	2012-08-03 16:38:47.012099073 +0800
+diff -ruN nginx-1.3.4/auto/cc/conf nginx-1.3.4-dso/auto/cc/conf
+--- nginx-1.3.4/auto/cc/conf	2012-08-06 12:06:57.922193148 +0800
++++ nginx-1.3.4-dso/auto/cc/conf	2012-08-06 12:06:41.525890024 +0800
 @@ -11,6 +11,7 @@
  ngx_binout="-o "
  ngx_objext="o"
@@ -9,9 +9,9 @@ diff -ruN nginx-1.2.2/auto/cc/conf nginx-1.2.2-dso/auto/cc/conf
  
  ngx_long_start=
  ngx_long_end=
-diff -ruN nginx-1.2.2/auto/init nginx-1.2.2-dso/auto/init
---- nginx-1.2.2/auto/init	2012-01-18 23:07:43.000000000 +0800
-+++ nginx-1.2.2-dso/auto/init	2012-08-03 16:39:42.556383265 +0800
+diff -ruN nginx-1.3.4/auto/init nginx-1.3.4-dso/auto/init
+--- nginx-1.3.4/auto/init	2012-01-18 23:07:43.000000000 +0800
++++ nginx-1.3.4-dso/auto/init	2012-08-06 12:04:39.306906111 +0800
 @@ -16,6 +16,9 @@
  NGX_ERR=$NGX_OBJS/autoconf.err
  MAKEFILE=$NGX_OBJS/Makefile
@@ -22,9 +22,9 @@ diff -ruN nginx-1.2.2/auto/init nginx-1.2.2-dso/auto/init
  
  NGX_PCH=
  NGX_USE_PCH=
-diff -ruN nginx-1.2.2/auto/install nginx-1.2.2-dso/auto/install
---- nginx-1.2.2/auto/install	2012-01-18 23:07:43.000000000 +0800
-+++ nginx-1.2.2-dso/auto/install	2012-08-03 16:40:47.748716867 +0800
+diff -ruN nginx-1.3.4/auto/install nginx-1.3.4-dso/auto/install
+--- nginx-1.3.4/auto/install	2012-07-07 17:35:30.000000000 +0800
++++ nginx-1.3.4-dso/auto/install	2012-08-06 12:06:11.072423334 +0800
 @@ -73,6 +73,16 @@
  esac
  
@@ -105,9 +105,9 @@ diff -ruN nginx-1.2.2/auto/install nginx-1.2.2-dso/auto/install
  
  
  # create Makefile
-diff -ruN nginx-1.2.2/auto/lib/conf nginx-1.2.2-dso/auto/lib/conf
---- nginx-1.2.2/auto/lib/conf	2012-01-18 23:07:43.000000000 +0800
-+++ nginx-1.2.2-dso/auto/lib/conf	2012-08-03 16:37:57.218844338 +0800
+diff -ruN nginx-1.3.4/auto/lib/conf nginx-1.3.4-dso/auto/lib/conf
+--- nginx-1.3.4/auto/lib/conf	2012-01-18 23:07:43.000000000 +0800
++++ nginx-1.3.4-dso/auto/lib/conf	2012-08-06 12:04:21.510801726 +0800
 @@ -70,7 +70,7 @@
      . auto/lib/perl/conf
  fi
@@ -117,9 +117,9 @@ diff -ruN nginx-1.2.2/auto/lib/conf nginx-1.2.2-dso/auto/lib/conf
      . auto/lib/geoip/conf
  fi
  
-diff -ruN nginx-1.2.2/auto/lib/geoip/conf nginx-1.2.2-dso/auto/lib/geoip/conf
---- nginx-1.2.2/auto/lib/geoip/conf	2012-01-18 23:07:43.000000000 +0800
-+++ nginx-1.2.2-dso/auto/lib/geoip/conf	2012-08-03 16:37:29.301701531 +0800
+diff -ruN nginx-1.3.4/auto/lib/geoip/conf nginx-1.3.4-dso/auto/lib/geoip/conf
+--- nginx-1.3.4/auto/lib/geoip/conf	2012-01-18 23:07:43.000000000 +0800
++++ nginx-1.3.4-dso/auto/lib/geoip/conf	2012-08-06 12:04:00.058673453 +0800
 @@ -64,8 +64,11 @@
  
  
@@ -134,9 +134,9 @@ diff -ruN nginx-1.2.2/auto/lib/geoip/conf nginx-1.2.2-dso/auto/lib/geoip/conf
  else
  
  cat << END
-diff -ruN nginx-1.2.2/auto/make nginx-1.2.2-dso/auto/make
---- nginx-1.2.2/auto/make	2012-01-18 23:07:43.000000000 +0800
-+++ nginx-1.2.2-dso/auto/make	2012-08-03 16:41:43.846003964 +0800
+diff -ruN nginx-1.3.4/auto/make nginx-1.3.4-dso/auto/make
+--- nginx-1.3.4/auto/make	2012-01-18 23:07:43.000000000 +0800
++++ nginx-1.3.4-dso/auto/make	2012-08-06 12:07:26.314343496 +0800
 @@ -3,6 +3,17 @@
  # Copyright (C) Nginx, Inc.
  
@@ -402,9 +402,9 @@ diff -ruN nginx-1.2.2/auto/make nginx-1.2.2-dso/auto/make
 +	-e "s|%%ngx_soext%%|'\.so'|g" \
 +	contrib/dso.in >> $NGX_DSO_COMPILE
 +fi
-diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
---- nginx-1.2.2/auto/modules	2012-07-03 01:41:52.000000000 +0800
-+++ nginx-1.2.2-dso/auto/modules	2012-08-06 12:24:13.927901436 +0800
+diff -ruN nginx-1.3.4/auto/modules nginx-1.3.4-dso/auto/modules
+--- nginx-1.3.4/auto/modules	2012-06-21 19:02:22.000000000 +0800
++++ nginx-1.3.4-dso/auto/modules	2012-08-06 12:28:14.374203574 +0800
 @@ -61,6 +61,17 @@
  fi
  
@@ -545,7 +545,7 @@ diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
  if [ $HTTP_REALIP = YES ]; then
      have=NGX_HTTP_REALIP . auto/have
      have=NGX_HTTP_X_FORWARDED_FOR . auto/have
-@@ -233,6 +301,11 @@
+@@ -233,7 +301,13 @@
      HTTP_SRCS="$HTTP_SRCS $HTTP_STATUS_SRCS"
  fi
  
@@ -555,9 +555,11 @@ diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
 +fi
 +
  if [ $HTTP_GEO = YES ]; then
-     have=NGX_HTTP_GEO . auto/have
++    have=NGX_HTTP_GEO . auto/have
      have=NGX_HTTP_X_FORWARDED_FOR . auto/have
-@@ -246,27 +319,53 @@
+     HTTP_MODULES="$HTTP_MODULES $HTTP_GEO_MODULE"
+     HTTP_SRCS="$HTTP_SRCS $HTTP_GEO_SRCS"
+@@ -245,27 +319,53 @@
      HTTP_SRCS="$HTTP_SRCS $HTTP_GEOIP_SRCS"
  fi
  
@@ -611,7 +613,15 @@ diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
  if [ $HTTP_SSL = YES ]; then
      USE_OPENSSL=YES
      have=NGX_HTTP_SSL . auto/have
-@@ -289,16 +388,31 @@
+@@ -275,6 +375,7 @@
+ fi
+ 
+ if [ $HTTP_PROXY = YES ]; then
++    have=NGX_HTTP_PROXY . auto/have
+     have=NGX_HTTP_X_FORWARDED_FOR . auto/have
+     #USE_MD5=YES
+     HTTP_MODULES="$HTTP_MODULES $HTTP_PROXY_MODULE"
+@@ -287,16 +388,31 @@
      HTTP_SRCS="$HTTP_SRCS $HTTP_FASTCGI_SRCS"
  fi
  
@@ -643,7 +653,7 @@ diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
  if [ $HTTP_PERL = YES ]; then
      USE_PERL=YES
      HTTP_MODULES="$HTTP_MODULES $HTTP_PERL_MODULE"
-@@ -312,22 +426,43 @@
+@@ -310,22 +426,43 @@
      HTTP_SRCS="$HTTP_SRCS $HTTP_MEMCACHED_SRCS"
  fi
  
@@ -687,7 +697,7 @@ diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
  if [ $HTTP_DEGRADATION = YES ]; then
      have=NGX_HTTP_DEGRADATION . auto/have
      HTTP_MODULES="$HTTP_MODULES $HTTP_DEGRADATION_MODULE"
-@@ -339,21 +474,41 @@
+@@ -337,21 +474,41 @@
      HTTP_SRCS="$HTTP_SRCS $HTTP_FLV_SRCS"
  fi
  
@@ -729,7 +739,7 @@ diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
  if [ $HTTP_UPSTREAM_KEEPALIVE = YES ]; then
      HTTP_MODULES="$HTTP_MODULES $HTTP_UPSTREAM_KEEPALIVE_MODULE"
      HTTP_SRCS="$HTTP_SRCS $HTTP_UPSTREAM_KEEPALIVE_SRCS"
-@@ -396,7 +551,6 @@
+@@ -394,7 +551,6 @@
      USE_OPENSSL=YES
  fi
  
@@ -737,7 +747,7 @@ diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
  modules="$CORE_MODULES $EVENT_MODULES"
  
  
-@@ -493,8 +647,50 @@
+@@ -491,8 +647,50 @@
      echo "    &$mod,"                         >> $NGX_MODULES_C
  done
  
@@ -788,9 +798,9 @@ diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
 +    done
 +
 +fi
-diff -ruN nginx-1.2.2/auto/options nginx-1.2.2-dso/auto/options
---- nginx-1.2.2/auto/options	2012-07-03 00:41:13.000000000 +0800
-+++ nginx-1.2.2-dso/auto/options	2012-08-06 12:21:10.234903897 +0800
+diff -ruN nginx-1.3.4/auto/options nginx-1.3.4-dso/auto/options
+--- nginx-1.3.4/auto/options	2012-06-04 07:21:26.000000000 +0800
++++ nginx-1.3.4-dso/auto/options	2012-08-06 12:28:31.129294319 +0800
 @@ -15,6 +15,9 @@
  NGX_USER=
  NGX_GROUP=
@@ -1233,9 +1243,9 @@ diff -ruN nginx-1.2.2/auto/options nginx-1.2.2-dso/auto/options
  NGX_HTTP_LOG_PATH=${NGX_HTTP_LOG_PATH:-logs/access.log}
  NGX_HTTP_CLIENT_TEMP_PATH=${NGX_HTTP_CLIENT_TEMP_PATH:-client_body_temp}
  NGX_HTTP_PROXY_TEMP_PATH=${NGX_HTTP_PROXY_TEMP_PATH:-proxy_temp}
-diff -ruN nginx-1.2.2/auto/sources nginx-1.2.2-dso/auto/sources
---- nginx-1.2.2/auto/sources	2012-07-03 00:41:13.000000000 +0800
-+++ nginx-1.2.2-dso/auto/sources	2012-08-03 16:53:05.233247488 +0800
+diff -ruN nginx-1.3.4/auto/sources nginx-1.3.4-dso/auto/sources
+--- nginx-1.3.4/auto/sources	2012-06-04 07:21:26.000000000 +0800
++++ nginx-1.3.4-dso/auto/sources	2012-08-06 12:15:14.345801159 +0800
 @@ -80,6 +80,12 @@
  OPENSSL_SRCS=src/event/ngx_event_openssl.c
  
@@ -1249,9 +1259,9 @@ diff -ruN nginx-1.2.2/auto/sources nginx-1.2.2-dso/auto/sources
  EVENT_MODULES="ngx_events_module ngx_event_core_module"
  
  EVENT_INCS="src/event src/event/modules"
-diff -ruN nginx-1.2.2/auto/summary nginx-1.2.2-dso/auto/summary
---- nginx-1.2.2/auto/summary	2012-01-18 23:07:43.000000000 +0800
-+++ nginx-1.2.2-dso/auto/summary	2012-08-03 16:53:25.797351694 +0800
+diff -ruN nginx-1.3.4/auto/summary nginx-1.3.4-dso/auto/summary
+--- nginx-1.3.4/auto/summary	2012-01-18 23:07:43.000000000 +0800
++++ nginx-1.3.4-dso/auto/summary	2012-08-06 12:15:26.749886535 +0800
 @@ -97,6 +97,10 @@
    nginx http client request body temporary files: "$NGX_HTTP_CLIENT_TEMP_PATH"
  END
@@ -1263,9 +1273,9 @@ diff -ruN nginx-1.2.2/auto/summary nginx-1.2.2-dso/auto/summary
  if [ $HTTP_PROXY = YES ]; then
      echo "  nginx http proxy temporary files: \"$NGX_HTTP_PROXY_TEMP_PATH\""
  fi
-diff -ruN nginx-1.2.2/auto/unix nginx-1.2.2-dso/auto/unix
---- nginx-1.2.2/auto/unix	2012-07-03 00:51:02.000000000 +0800
-+++ nginx-1.2.2-dso/auto/unix	2012-08-03 16:54:18.554619518 +0800
+diff -ruN nginx-1.3.4/auto/unix nginx-1.3.4-dso/auto/unix
+--- nginx-1.3.4/auto/unix	2012-06-08 17:41:55.000000000 +0800
++++ nginx-1.3.4-dso/auto/unix	2012-08-06 12:15:42.849994792 +0800
 @@ -272,6 +272,13 @@
  
      if [ $ngx_found = yes ]; then
@@ -1280,353 +1290,9 @@ diff -ruN nginx-1.2.2/auto/unix nginx-1.2.2-dso/auto/unix
      fi
  fi
  
-diff -ruN nginx-1.2.2/contrib/dso.in nginx-1.2.2-dso/contrib/dso.in
---- nginx-1.2.2/contrib/dso.in	1970-01-01 08:00:00.000000000 +0800
-+++ nginx-1.2.2-dso/contrib/dso.in	2012-08-03 16:54:46.166759909 +0800
-@@ -0,0 +1,340 @@
-+DSO_ALL_INCS=%%ALL_INCS%%
-+DSO_CORE_DEPS=%%CORE_DEPS%%
-+DSO_CORE_INCS=%%CORE_INCS%%
-+DSO_HTTP_DEPS=%%HTTP_DEPS%%
-+DSO_HTTP_INCS=%%HTTP_INCS%%
-+
-+
-+ALL_INCS=
-+CORE_INCS=
-+CORE_DEPS=
-+HTTP_INCS=
-+HTTP_DEPS=
-+
-+NGX_SOURCE_HOME=%%NGX_SOURCE_HOME%%
-+
-+opt=
-+help=no
-+
-+for option
-+do
-+    opt="$opt `echo $option | sed -e \"s/\(--[^=]*=\)\(.* .*\)/\1'\2'/\"`"
-+
-+    case "$option" in
-+        -*=*) value=`echo "$option" | sed -e 's/[-_a-zA-Z0-9]*=//'` ;;
-+           *) value="" ;;
-+    esac
-+
-+    case "$option" in
-+        --help)                          help=yes                       ;;
-+        --h)                             help=yes                       ;;
-+
-+        --prefix=)                       NGX_DSO_PREFIX="!"             ;;
-+        --prefix=*)                      NGX_DSO_PREFIX="$value"        ;;
-+
-+        --add-module=*)                  NGX_DSO_ADDONS="$NGX_DSO_ADDONS $value" ;;
-+
-+        --with-nginx-source=*)           NGX_SOURCE_HOME="$value"       ;;
-+
-+        *)
-+            echo "$0: error: invalid option \"$option\""
-+            exit 1
-+        ;;
-+    esac
-+done
-+
-+
-+NGX_CONFIGURE="$opt"
-+
-+
-+if [ $help = yes ]; then
-+
-+cat << END
-+
-+  --help                             print this message
-+
-+  --prefix=PATH                      set module installation prefix
-+
-+  --add-module=PATH                  external module of will compile
-+
-+  --with-nginx-source=NGX_SOURCE_HOM set nginx source path
-+
-+END
-+
-+    exit 1
-+fi
-+
-+
-+
-+# arg1 is addon dir
-+# arg2 is addon deps
-+# arg3 is addon src
-+
-+generate_make () {
-+    # mkdir build temp
-+    cd $1
-+    dso_binout=$ngx_addon_name
-+    NGX_DSO_MAKEFILE=objs/Makefile
-+    NGX_ADDON_DEPS=$2
-+    NGX_OBJS=objs
-+
-+    if test -d $NGX_OBJS; then
-+        rm -rf $NGX_OBJS
-+    fi
-+
-+    mkdir -p $NGX_OBJS
-+
-+    cat << END                                                     > $NGX_DSO_MAKEFILE
-+
-+CC = $CC
-+CFLAGS = $CFLAGS
-+CPP = $CPP
-+LINK = $LINK
-+
-+
-+CORE_LIBS = $CORE_LIBS
-+CORE_LINK = $CORE_LINK
-+NGX_LD_OPT = $NGX_LD_OPT
-+
-+END
-+
-+
-+    cat << END                                                     >> $NGX_DSO_MAKEFILE
-+
-+ALL_INCS = $ALL_INCS
-+
-+CORE_DEPS = $CORE_DEPS
-+
-+CORE_INCS = $CORE_INCS
-+
-+HTTP_DEPS = $HTTP_DEPS
-+
-+
-+HTTP_INCS = $HTTP_INCS
-+
-+ADDON_DEPS = \$(CORE_DEPS) $NGX_ADDON_DEPS
-+
-+END
-+
-+
-+    if test -n "$NGX_LD_OPT$CORE_LIBS"; then
-+        ngx_libs=`echo $NGX_LD_OPT $CORE_LIBS \
-+            | sed -e "s/\//$ngx_regex_dirsep/g" -e "s/^/$ngx_long_regex_cont/"`
-+    fi
-+
-+    for ngx_src in $NGX_ADDON_SRCS
-+    do
-+        ngx_obj="objs/src/`basename \`dirname $ngx_src\``"
-+
-+        test -d $ngx_obj || mkdir -p $ngx_obj
-+
-+        ngx_obj=`echo $ngx_obj/\`basename $ngx_src\` | sed -e "s/\//$ngx_regex_dirsep/g"`
-+
-+        ngx_obj=`echo $ngx_obj \
-+            | sed -e "s#^\(.*\.\)cpp\\$#$ngx_objs_dir\1$ngx_objext#g" \
-+                  -e "s#^\(.*\.\)cc\\$#$ngx_objs_dir\1$ngx_objext#g" \
-+                  -e "s#^\(.*\.\)c\\$#$ngx_objs_dir\1$ngx_objext#g" \
-+                  -e "s#^\(.*\.\)S\\$#$ngx_objs_dir\1$ngx_objext#g"`
-+
-+        ngx_dso_all_objs="$ngx_dso_all_objs $ngx_obj"
-+
-+    done
-+
-+    ngx_deps=`echo $ngx_dso_all_objs $ngx_res $LINK_DEPS \
-+        | sed -e "s/  *\([^ ][^ ]*\)/$ngx_regex_cont\1/g" \
-+              -e "s/\//$ngx_regex_dirsep/g"`
-+
-+    ngx_objs=`echo $ngx_dso_all_objs \
-+        | sed -e "s/  *\([^ ][^ ]*\)/$ngx_long_regex_cont\1/g" \
-+              -e "s/\//$ngx_regex_dirsep/g"`
-+
-+    ngx_link=${CORE_LINK:+`echo $CORE_LINK \
-+        | sed -e "s/\//$ngx_regex_dirsep%%/g" -e "s/^/$ngx_long_regex_cont/"`}
-+
-+    cat << END                                                    >> $NGX_DSO_MAKEFILE
-+
-+$NGX_OBJS${ngx_dirsep}${dso_binout}${ngx_soext}:	$ngx_deps$ngx_spacer
-+	\$(LINK) ${ngx_long_start}${ngx_binout} $NGX_OBJS${ngx_dirsep}${dso_binout}${ngx_soext}$ngx_long_cont$ngx_objs$ngx_libs$ngx_link
-+	$ngx_rcc
-+${ngx_long_end}
-+END
-+
-+    for ngx_src in $NGX_ADDON_SRCS
-+    do
-+        ngx_obj="objs/src/`basename \`dirname $ngx_src\``"
-+
-+        test -d $ngx_obj || mkdir -p $ngx_obj
-+
-+        ngx_obj=`echo $ngx_obj/\`basename $ngx_src\` | sed -e "s#/#$ngx_regex_dirsep#g"`
-+
-+        ngx_obj=`echo $ngx_obj \
-+            | sed -e "s#^\(.*\.\)cpp\\$#$ngx_objs_dir\1$ngx_objext#g" \
-+                  -e "s#^\(.*\.\)cc\\$#$ngx_objs_dir\1$ngx_objext#g" \
-+                  -e "s#^\(.*\.\)c\\$#$ngx_objs_dir\1$ngx_objext#g" \
-+                  -e "s#^\(.*\.\)S\\$#$ngx_objs_dir\1$ngx_objext#g"`
-+
-+        ngx_src=`echo $ngx_src | sed -e "s#/#$ngx_regex_dirsep#g"`
-+
-+
-+        cat << END                                            >> $NGX_DSO_MAKEFILE
-+
-+$ngx_obj:	\$(ADDON_DEPS)$ngx_cont$ngx_src
-+	$ngx_cc$ngx_tab$ngx_objout$ngx_obj$ngx_tab$ngx_src$NGX_AUX
-+
-+END
-+
-+     done
-+
-+    make -f $NGX_DSO_MAKEFILE
-+    if test -n "$NGX_DSO_PREFIX"; then
-+        cp $NGX_OBJS${ngx_dirsep}${dso_binout}${ngx_soext} $NGX_DSO_PREFIX
-+    else
-+        cp $NGX_OBJS${ngx_dirsep}${dso_binout}${ngx_soext} $NGX_PREFIX/$NGX_DSO_PATH
-+    fi
-+}
-+
-+
-+if test -n "$NGX_DSO_ADDONS"; then
-+
-+    echo configuring additional modules
-+
-+    for dai in $DSO_ALL_INCS
-+    do
-+        if [ "$dai" = "-I" ]; then
-+            ALL_INCS="$ALL_INCS $dai"
-+        elif test -n "$dai"; then
-+            case ".$dai" in
-+                ./*)
-+                    ALL_INCS="$ALL_INCS $dai"
-+                    ;;
-+
-+                *)
-+                    ALL_INCS="$ALL_INCS $NGX_SOURCE_HOME/$dai"
-+                    ;;
-+            esac
-+        fi
-+    done
-+
-+    for dcd in $DSO_CORE_DEPS
-+    do
-+        if test -n "$dcd"; then
-+            case ".$dcd" in
-+                ./*)
-+                    CORE_DEPS="$CORE_DEPS $dcd"
-+                    ;;
-+
-+                *)
-+                    CORE_DEPS="$CORE_DEPS $NGX_SOURCE_HOME/$dcd"
-+                    ;;
-+            esac
-+        fi
-+    done
-+
-+    for dci in $DSO_CORE_INCS
-+    do
-+        if [ "$dci" = "-I" ]; then
-+            CORE_INCS="$CORE_INCS $dci"
-+        elif test -n "$dci"; then
-+            case ".$dci" in
-+                ./*)
-+                    CORE_INCS="$CORE_INCS $dci"
-+                    ;;
-+
-+                *)
-+                    CORE_INCS="$CORE_INCS $NGX_SOURCE_HOME/$dci"
-+                    ;;
-+            esac
-+        fi
-+    done
-+
-+    for dhi in $DSO_HTTP_INCS
-+    do
-+        if [ "$dhi" = "-I" ]; then
-+            HTTP_INCS="$HTTP_INCS $dhi"
-+        elif test -n "$dhi"; then
-+            case ".$dhi" in
-+                ./*)
-+                    HTTP_INCS="$HTTP_INCS $dhi"
-+                    ;;
-+
-+                *)
-+                    HTTP_INCS="$HTTP_INCS $NGX_SOURCE_HOME/$dhi"
-+                    ;;
-+            esac
-+        fi
-+    done
-+
-+    for dhd in $DSO_HTTP_DEPS
-+    do
-+        if test -n "$dhd"; then
-+            case ".$dhd" in
-+                ./*)
-+                    HTTP_DEPS="$HTTP_DEPS $dhd"
-+                    ;;
-+
-+                *)
-+                    HTTP_DEPS="$HTTP_DEPS $NGX_SOURCE_HOME/$dhd"
-+                    ;;
-+            esac
-+        fi
-+    done
-+
-+    for ngx_addon_dir in $NGX_DSO_ADDONS
-+    do
-+        echo "adding module in $ngx_addon_dir"
-+        if test -f $ngx_addon_dir/config; then
-+            NGX_ADDON_SRCS=
-+            NGX_ADDON_DEPS=
-+            cd $NGX_SOURCE_HOME
-+
-+            CORE_INCS_TEMP=$CORE_INCS
-+            HTTP_INCS_TEMP=$HTTP_INCS
-+            CORE_LIBS_TEMP=$CORE_LIBS
-+            CORE_INCS=
-+            HTTP_INCS=
-+            CORE_LIBS=
-+
-+            . $ngx_addon_dir/config
-+
-+            dso_core_incs=`echo $CORE_INCS \
-+                | sed -e "s/  *\([^ ][^ ]*\)/$ngx_regex_cont$ngx_include_opt\1/g" \
-+                -e "s/\//$ngx_regex_dirsep/g"`
-+
-+            dso_http_incs=`echo $HTTP_INCS \
-+                | sed -e "s/  *\([^ ][^ ]*\)/$ngx_regex_cont$ngx_include_opt\1/g" \
-+                -e "s/\//$ngx_regex_dirsep/g"`
-+
-+            dso_core_libs=`echo $CORE_LIBS \
-+                | sed -e "s/\//$ngx_regex_dirsep/g"`
-+
-+            if test -n "$dso_core_incs"; then
-+                CORE_INCS="$CORE_INCS_TEMP -I $dso_core_incs"
-+            else
-+                CORE_INCS=$CORE_INCS_TEMP
-+            fi
-+
-+            if test -n "$dso_http_incs"; then
-+                HTTP_INCS="$HTTP_INCS_TEMP -I $dso_http_incs"
-+            else
-+                HTTP_INCS=$HTTP_INCS_TEMP
-+            fi
-+
-+            if test -n "$dso_core_libs"; then
-+                CORE_LIBS="$CORE_LIBS_TEMP $dso_core_libs"
-+            else
-+                CORE_LIBS=$CORE_LIBS_TEMP
-+            fi
-+
-+            cd -
-+            echo " + $ngx_addon_name will be compiled"
-+            generate_make $ngx_addon_dir $NGX_ADDON_DEPS $NGX_ADDON_SRCS $ngx_addon_name
-+        else
-+            echo "$0: error: no $ngx_addon_dir/config was found"
-+            exit 1
-+        fi
-+    done
-+else
-+    echo "please specify the module path"
-+    exit 1
-+fi
-+
-diff -ruN nginx-1.2.2/src/core/nginx.c nginx-1.2.2-dso/src/core/nginx.c
---- nginx-1.2.2/src/core/nginx.c	2012-04-13 03:35:41.000000000 +0800
-+++ nginx-1.2.2-dso/src/core/nginx.c	2012-08-03 17:32:56.053159931 +0800
+diff -ruN nginx-1.3.4/src/core/nginx.c nginx-1.3.4-dso/src/core/nginx.c
+--- nginx-1.3.4/src/core/nginx.c	2012-04-13 03:35:41.000000000 +0800
++++ nginx-1.3.4-dso/src/core/nginx.c	2012-08-06 12:16:07.586156214 +0800
 @@ -228,6 +228,7 @@
                  "  -V            : show version and configure options then exit"
                                     NGX_LINEFEED
@@ -1667,9 +1333,18 @@ diff -ruN nginx-1.2.2/src/core/nginx.c nginx-1.2.2-dso/src/core/nginx.c
              case 'q':
                  ngx_quiet_mode = 1;
                  break;
-diff -ruN nginx-1.2.2/src/core/ngx_conf_file.h nginx-1.2.2-dso/src/core/ngx_conf_file.h
---- nginx-1.2.2/src/core/ngx_conf_file.h	2012-04-03 15:37:31.000000000 +0800
-+++ nginx-1.2.2-dso/src/core/ngx_conf_file.h	2012-08-03 17:27:19.226465015 +0800
+diff -ruN nginx-1.3.4/src/core/ngx_conf_file.h nginx-1.3.4-dso/src/core/ngx_conf_file.h
+--- nginx-1.3.4/src/core/ngx_conf_file.h	2012-07-30 03:59:06.000000000 +0800
++++ nginx-1.3.4-dso/src/core/ngx_conf_file.h	2012-08-06 12:17:32.894679656 +0800
+@@ -45,7 +45,7 @@
+ #define NGX_CONF_ANY         0x00000400
+ #define NGX_CONF_1MORE       0x00000800
+ #define NGX_CONF_2MORE       0x00001000
+-#define NGX_CONF_MULTI       0x00000000  /* compatibility */
++#define NGX_CONF_MULTI       0x00000000  /* compatibility */    
+ 
+ #define NGX_DIRECT_CONF      0x00010000
+ 
 @@ -53,7 +53,6 @@
  #define NGX_ANY_CONF         0x0F000000
  
@@ -1711,9 +1386,9 @@ diff -ruN nginx-1.2.2/src/core/ngx_conf_file.h nginx-1.2.2-dso/src/core/ngx_conf
  
  
  #endif /* _NGX_HTTP_CONF_FILE_H_INCLUDED_ */
-diff -ruN nginx-1.2.2/src/core/ngx_cycle.c nginx-1.2.2-dso/src/core/ngx_cycle.c
---- nginx-1.2.2/src/core/ngx_cycle.c	2012-01-18 23:07:43.000000000 +0800
-+++ nginx-1.2.2-dso/src/core/ngx_cycle.c	2012-08-03 17:34:36.350664686 +0800
+diff -ruN nginx-1.3.4/src/core/ngx_cycle.c nginx-1.3.4-dso/src/core/ngx_cycle.c
+--- nginx-1.3.4/src/core/ngx_cycle.c	2012-01-18 23:07:43.000000000 +0800
++++ nginx-1.3.4-dso/src/core/ngx_cycle.c	2012-08-06 12:18:03.369857971 +0800
 @@ -10,6 +10,10 @@
  #include <ngx_event.h>
  
@@ -1754,9 +1429,9 @@ diff -ruN nginx-1.2.2/src/core/ngx_cycle.c nginx-1.2.2-dso/src/core/ngx_cycle.c
      if (ngx_test_config && !ngx_quiet_mode) {
          ngx_log_stderr(0, "the configuration file %s syntax is ok",
                         cycle->conf_file.data);
-diff -ruN nginx-1.2.2/src/core/ngx_cycle.h nginx-1.2.2-dso/src/core/ngx_cycle.h
---- nginx-1.2.2/src/core/ngx_cycle.h	2012-03-21 21:58:51.000000000 +0800
-+++ nginx-1.2.2-dso/src/core/ngx_cycle.h	2012-08-03 17:33:31.385337744 +0800
+diff -ruN nginx-1.3.4/src/core/ngx_cycle.h nginx-1.3.4-dso/src/core/ngx_cycle.h
+--- nginx-1.3.4/src/core/ngx_cycle.h	2012-03-21 21:58:51.000000000 +0800
++++ nginx-1.3.4-dso/src/core/ngx_cycle.h	2012-08-06 12:18:13.440916186 +0800
 @@ -133,6 +133,7 @@
  extern ngx_array_t            ngx_old_cycles;
  extern ngx_module_t           ngx_core_module;
@@ -1765,9 +1440,9 @@ diff -ruN nginx-1.2.2/src/core/ngx_cycle.h nginx-1.2.2-dso/src/core/ngx_cycle.h
  extern ngx_uint_t             ngx_quiet_mode;
  #if (NGX_THREADS)
  extern ngx_tls_key_t          ngx_core_tls_key;
-diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso_module.c
---- nginx-1.2.2/src/core/ngx_dso_module.c	1970-01-01 08:00:00.000000000 +0800
-+++ nginx-1.2.2-dso/src/core/ngx_dso_module.c	2012-08-03 17:23:20.903274024 +0800
+diff -ruN nginx-1.3.4/src/core/ngx_dso_module.c nginx-1.3.4-dso/src/core/ngx_dso_module.c
+--- nginx-1.3.4/src/core/ngx_dso_module.c	1970-01-01 08:00:00.000000000 +0800
++++ nginx-1.3.4-dso/src/core/ngx_dso_module.c	2012-08-06 12:18:27.663997885 +0800
 @@ -0,0 +1,695 @@
 +
 +/*

@@ -790,7 +790,7 @@ diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
 +fi
 diff -ruN nginx-1.2.2/auto/options nginx-1.2.2-dso/auto/options
 --- nginx-1.2.2/auto/options	2012-07-03 00:41:13.000000000 +0800
-+++ nginx-1.2.2-dso/auto/options	2012-08-06 12:21:10.234903897 +0800
++++ nginx-1.2.2-dso/auto/options	2012-08-16 10:31:50.651128440 +0800
 @@ -15,6 +15,9 @@
  NGX_USER=
  NGX_GROUP=
@@ -1165,46 +1165,46 @@ diff -ruN nginx-1.2.2/auto/options nginx-1.2.2-dso/auto/options
  
 -  --without-http_charset_module      disable ngx_http_charset_module
 -  --without-http_gzip_module         disable ngx_http_gzip_module
-+  --with-http_addition_module=shared enable ngx_http_addition_filter_module(shared)
-+  --with-http_xslt_module=shared     enable ngx_http_xslt_filter_module(shared)
++  --with-http_addition_module=shared enable ngx_http_addition_filter_module (shared)
++  --with-http_xslt_module=shared     enable ngx_http_xslt_filter_module (shared)
 +  --with-http_image_filter_module=shared
-+                                     enable ngx_http_image_filter_module(shared)
++                                     enable ngx_http_image_filter_module (shared)
 +  --with-http_geoip_module=shared    enable ngx_http_geoip_module
-+  --with-http_sub_module=shared      enable ngx_http_sub_filter_module(shared)
-+  --with-http_flv_module=shared      enable ngx_http_flv_module(shared)
-+  --with-http_mp4_module=shared      enable ngx_http_mp4_module(shared)
++  --with-http_sub_module=shared      enable ngx_http_sub_filter_module (shared)
++  --with-http_flv_module=shared      enable ngx_http_flv_module (shared)
++  --with-http_mp4_module=shared      enable ngx_http_mp4_module (shared)
 +  --with-http_random_index_module=shared
-+                                     enable ngx_http_random_index_module(shared)
++                                     enable ngx_http_random_index_module (shared)
 +  --with-http_secure_link_module=shared
-+                                     enable ngx_http_secure_link_module(shared)
++                                     enable ngx_http_secure_link_module (shared)
 +  --with-http_charset_filter_module=shared
-+                                     enable ngx_http_charset_filter_module(shared)
++                                     enable ngx_http_charset_filter_module (shared)
 +  --with-http_userid_filter_module=shared
-+                                     enable ngx_http_userid_filter_module(shared)
-+  --with-http_access_module=shared   enable ngx_http_access_module(shared)
++                                     enable ngx_http_userid_filter_module (shared)
++  --with-http_access_module=shared   enable ngx_http_access_module (shared)
 +  --with-http_autoindex_module=shared
-+                                     enable ngx_http_autoindex_module(shared)
-+  --with-http_map_module=shared      enable ngx_http_map_module(shared)
++                                     enable ngx_http_autoindex_module (shared)
++  --with-http_map_module=shared      enable ngx_http_map_module (shared)
 +  --with-http_split_clients_module=shared
-+                                     enable ngx_http_split_clients_module(shared)
-+  --with-http_referer_module=shared  enable ngx_http_referer_module(shared)
-+  --with-http_rewrite_module=shared  enable ngx_http_rewrite_module(shared)
-+  --with-http_fastcgi_module=shared  enable ngx_http_fastcgi_module(shared)
-+  --with-http_uwsgi_module=shared    enable ngx_http_uwsgi_module(shared)
-+  --with-http_scgi_module=shared     enable ngx_http_scgi_module(shared)
++                                     enable ngx_http_split_clients_module (shared)
++  --with-http_referer_module=shared  enable ngx_http_referer_module (shared)
++  --with-http_rewrite_module=shared  enable ngx_http_rewrite_module (shared)
++  --with-http_fastcgi_module=shared  enable ngx_http_fastcgi_module (shared)
++  --with-http_uwsgi_module=shared    enable ngx_http_uwsgi_module (shared)
++  --with-http_scgi_module=shared     enable ngx_http_scgi_module (shared)
 +  --with-http_memcached_module=shared
-+                                     enable ngx_http_memcached_module(shared)
++                                     enable ngx_http_memcached_module (shared)
 +  --with-http_limit_conn_module=shared
-+                                     enable ngx_http_limit_conn_module(shared)
++                                     enable ngx_http_limit_conn_module (shared)
 +  --with-http_limit_req_module=shared
-+                                     enable ngx_http_limit_req_module(shared)
++                                     enable ngx_http_limit_req_module (shared)
 +  --with-http_empty_gif_module=shared
-+                                     enable ngx_http_empty_gif_module(shared)
-+  --with-http_browser_module=shared  enable ngx_http_browser_module(shared)
++                                     enable ngx_http_empty_gif_module (shared)
++  --with-http_browser_module=shared  enable ngx_http_browser_module (shared)
 +  --with-http_upstream_ip_hash_module=shared
-+                                     enable ngx_http_upstream_ip_hash_module(shared)
++                                     enable ngx_http_upstream_ip_hash_module (shared)
 +  --with-http_upstream_least_conn_module=shared
-+                                     enable ngx_http_upstream_least_conn_module(shared)
++                                     enable ngx_http_upstream_least_conn_module (shared)
 +
 +  --without-http_charset_module      disable ngx_http_charset_filter_module
 +  --without-http_gzip_module         disable ngx_http_gzip_filter_module
@@ -1767,8 +1767,8 @@ diff -ruN nginx-1.2.2/src/core/ngx_cycle.h nginx-1.2.2-dso/src/core/ngx_cycle.h
  extern ngx_tls_key_t          ngx_core_tls_key;
 diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso_module.c
 --- nginx-1.2.2/src/core/ngx_dso_module.c	1970-01-01 08:00:00.000000000 +0800
-+++ nginx-1.2.2-dso/src/core/ngx_dso_module.c	2012-08-09 16:35:02.465851719 +0800
-@@ -0,0 +1,694 @@
++++ nginx-1.2.2-dso/src/core/ngx_dso_module.c	2012-08-16 09:59:42.151587641 +0800
+@@ -0,0 +1,714 @@
 +
 +/*
 + * Copyright (C) 2010-2012 Alibaba Group Holding Limited
@@ -1779,6 +1779,9 @@ diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso
 +#include <ngx_core.h>
 +#include <nginx.h>
 +#include <dlfcn.h>
++
++
++#define NGX_DSO_EXT ".so"
 +
 +
 +typedef struct {
@@ -2075,8 +2078,9 @@ diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso
 +static char *
 +ngx_dso_save(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 +{
++    u_char                              *p;
 +    ngx_int_t                            rc;
-+    ngx_str_t                           *value;
++    ngx_str_t                           *value, module_path;
 +    ngx_dso_module_t                    *dl_m;
 +    ngx_dso_conf_ctx_t                  *ctx;
 +
@@ -2090,8 +2094,24 @@ diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso
 +        return NGX_CONF_ERROR;
 +    }
 +
-+    rc = ngx_dso_check_duplicated(cf->cycle, ctx->modules,
-+                                 &value[1], &value[2]);
++    if (cf->args->nelts == 3) {
++        rc = ngx_dso_check_duplicated(cf->cycle, ctx->modules,
++                                      &value[1], &value[2]);
++        module_path = value[2];
++    } else {
++        /* cf->args->nelts == 2 */
++        module_path.len = value[1].len + sizeof(NGX_DSO_EXT);
++        module_path.data = ngx_pcalloc(cf->pool, module_path.len);
++        if (module_path.data == NULL) {
++            return NGX_CONF_ERROR;
++        }
++
++        p = ngx_cpymem(module_path.data, value[1].data, value[1].len);
++        ngx_memcpy(p, NGX_DSO_EXT, sizeof(NGX_DSO_EXT) - 1);
++        rc = ngx_dso_check_duplicated(cf->cycle, ctx->modules,
++                                      &value[1], &module_path);
++    }
++
 +    if (rc == NGX_DECLINED) {
 +        return NGX_CONF_OK;
 +    }
@@ -2102,7 +2122,7 @@ diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso
 +    }
 +
 +    dl_m->name = value[1];
-+    dl_m->path = value[2];
++    dl_m->path = module_path;
 +
 +    return NGX_CONF_OK;
 +}
@@ -2206,7 +2226,7 @@ diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso
 +
 +    if (ngx_strcmp(value[0].data, "load") == 0) {
 +
-+        if (cf->args->nelts != 3) {
++        if (cf->args->nelts != 2 && cf->args->nelts != 3) {
 +            ngx_conf_log_error(NGX_LOG_EMERG, cf, 0,
 +                "invalid number of arguments in \"load\" directive");
 +            return NGX_CONF_ERROR;

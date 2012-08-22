@@ -404,7 +404,7 @@ diff -ruN nginx-1.2.2/auto/make nginx-1.2.2-dso/auto/make
 +fi
 diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
 --- nginx-1.2.2/auto/modules	2012-07-03 01:41:52.000000000 +0800
-+++ nginx-1.2.2-dso/auto/modules	2012-08-06 12:24:13.927901436 +0800
++++ nginx-1.2.2-dso/auto/modules	2012-08-22 17:45:29.577958011 +0800
 @@ -61,6 +61,17 @@
  fi
  
@@ -784,7 +784,7 @@ diff -ruN nginx-1.2.2/auto/modules nginx-1.2.2-dso/auto/modules
 +
 +for mod in $NGX_ALL_MODULES
 +    do
-+        echo "$mod;"                          >> $NGX_MODULE_ORDER
++        echo "module_order $mod;"                  >> $NGX_MODULE_ORDER
 +    done
 +
 +fi
@@ -1767,8 +1767,8 @@ diff -ruN nginx-1.2.2/src/core/ngx_cycle.h nginx-1.2.2-dso/src/core/ngx_cycle.h
  extern ngx_tls_key_t          ngx_core_tls_key;
 diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso_module.c
 --- nginx-1.2.2/src/core/ngx_dso_module.c	1970-01-01 08:00:00.000000000 +0800
-+++ nginx-1.2.2-dso/src/core/ngx_dso_module.c	2012-08-16 09:59:42.151587641 +0800
-@@ -0,0 +1,714 @@
++++ nginx-1.2.2-dso/src/core/ngx_dso_module.c	2012-08-22 17:45:00.841807243 +0800
+@@ -0,0 +1,724 @@
 +
 +/*
 + * Copyright (C) 2010-2012 Alibaba Group Holding Limited
@@ -2205,7 +2205,6 @@ diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso
 +    pcf = *cf;
 +    cf->ctx = ctx;
 +    cf->module_type = NGX_CORE_MODULE;
-+    cf->handler = ngx_dso_order;
 +
 +    rv = ngx_conf_parse(cf, &file);
 +
@@ -2251,7 +2250,18 @@ diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso
 +        return NGX_CONF_OK;
 +    }
 +
-+    if (ngx_strcmp(value[0].data, "order") == 0) {
++    if (ngx_strcmp(value[0].data, "module_order") == 0) {
++
++        if (cf->args->nelts != 2) {
++            ngx_conf_log_error(NGX_LOG_EMERG, cf, 0,
++                "invalid number of arguments in \"sequence\" directive");
++            return NGX_CONF_ERROR;
++        }
++
++        return ngx_dso_order(cf, dummy, conf);
++    }
++
++    if (ngx_strcmp(value[0].data, "include") == 0) {
 +
 +        if (cf->args->nelts != 2) {
 +            ngx_conf_log_error(NGX_LOG_EMERG, cf, 0,
@@ -2363,7 +2373,7 @@ diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso
 +    value = cf->args->elts;
 +    ctx = cf->ctx;
 +
-+    if (cf->args->nelts != 1) {
++    if (cf->args->nelts != 2) {
 +        ngx_conf_log_error(NGX_LOG_EMERG, cf, 0,
 +                "unknown directive \"%s\"", value[0].data);
 +        return NGX_CONF_ERROR;
@@ -2374,7 +2384,7 @@ diff -ruN nginx-1.2.2/src/core/ngx_dso_module.c nginx-1.2.2-dso/src/core/ngx_dso
 +        return NGX_CONF_ERROR;
 +    }
 +
-+    *module_name = value[0];
++    *module_name = value[1];
 +
 +    return NGX_CONF_OK;
 +}

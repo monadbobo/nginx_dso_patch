@@ -1,3 +1,14 @@
+diff -ruN nginx-1.2.3/auto/cc/conf nginx-1.2.3-dso/auto/cc/conf
+--- nginx-1.2.3/auto/cc/conf	2012-08-07 01:10:35.000000000 +0800
++++ nginx-1.2.3-dso/auto/cc/conf	2012-08-30 18:00:11.027562272 +0800
+@@ -11,6 +11,7 @@
+ ngx_binout="-o "
+ ngx_objext="o"
+ ngx_binext=
++ngx_soext=".so"
+ 
+ ngx_long_start=
+ ngx_long_end=
 diff -ruN nginx-1.2.3/auto/init nginx-1.2.3-dso/auto/init
 --- nginx-1.2.3/auto/init	2012-01-18 23:07:43.000000000 +0800
 +++ nginx-1.2.3-dso/auto/init	2012-08-30 17:27:18.304989435 +0800
